@@ -1,22 +1,23 @@
 
 fun main(args: Array<String>) {
 
-    // For
-    val listaDeFrutas = listOf("Manzana","Pera","Piña","Frambuesa")
-    for (fruta in listaDeFrutas) println(fruta)
+    // Como lanzar una excepción
+    // throw IllegalStateException("Error!")
 
-    //For Each
-    listaDeFrutas.forEach{
-        println("El nombre de la fruta es: $it ")
+
+    // Controlando las excepciones
+    try {
+        throw IllegalStateException("Error!")
+    } catch (e: Exception){
+        println("Ha ocurrido un error")
+    } finally{
+        println("Ejecutando código final...")
     }
 
-    //Map
-    val nuevaLista = listaDeFrutas.map { it.length }
-    println(nuevaLista)
-
-
-    //Filter
-    val listaFiltrada = nuevaLista.filter { it > 4 }
-    println(listaFiltrada)
+    // Try como expresion
+    val primerValor = 10
+    val segundoValor = 0
+    val resultado: Int = try { primerValor / segundoValor } catch ( e: Exception ) { 0 }
+    println(resultado)
 
 }
