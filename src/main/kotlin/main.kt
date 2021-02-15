@@ -1,34 +1,29 @@
 
-//private const val PI : Double = 3.1416
-
-internal const val PI : Double = 3.1416
-
-
 fun main(args: Array<String>) {
-
-    var dinero : Int = 10
-    println(dinero)
-    dinero = 5
-    println(dinero)
-
-    // Variable de solo lectura
 
     val nombre : String = "Maria"
     println(nombre)
 
-// Esto daria error :
-// nombre = "Rose"
+    // Comprobación de if
+    if (nombre.isNotEmpty()) println("El largo de nuestra variable nombre es ${nombre.length}")
+    else println("Error, nuestra variable esta vacia")
 
-    val boolean : Boolean = true
-    val numeroLargo : Long = 30000000000000000
-    val double : Double = 2.7182
-    val float : Float = 1.1f
+    // Asignación de if
+    var mensaje : String
+    if (nombre.length > 8){
+        mensaje = "Tienes un nombre largo!"
+    } else {
+        mensaje = "Tienes un nombre corto"
+    }
+    println(mensaje)
 
-    val primerValor = 20
-    val segundoValor = 10
-//    val tercerValor = primerValor.minus(segundoValor)
-    val tercerValor = primerValor - segundoValor
+    // Asignación de if inmutable
+    val mensajeInmutable = if (nombre.length > 8) "Tienes un nombre largo!" else "Tienes un nombre corto"
+    println(mensajeInmutable)
 
-    println(tercerValor)
+    // Asignación de variable inmutable con else if
+    val mensajeInmutable2= if (nombre.length > 8) "Tienes un nombre largo!" else if(nombre.isEmpty()) "Este nombre esta vacio :(" else "Tienes un nombre corto"
+    println(mensajeInmutable2)
+
 
 }
