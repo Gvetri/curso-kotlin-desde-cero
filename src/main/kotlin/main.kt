@@ -1,18 +1,22 @@
 
 fun main(args: Array<String>) {
 
-    // While
-    var counter = 10
-    while (counter > 0) {
-        println(counter)
-        counter--
+    // For
+    val listaDeFrutas = listOf("Manzana","Pera","Piña","Frambuesa")
+    for (fruta in listaDeFrutas) println(fruta)
+
+    //For Each
+    listaDeFrutas.forEach{
+        println("El nombre de la fruta es: $it ")
     }
 
-    // Do while
-    do {
-        println("Generando Numero Aleatorio...")
-        val numeroAleatorio = (0..100).random()
-        println("El numero generado es $numeroAleatorio")
-    } while (numeroAleatorio > 50)
+    //Map
+    val nuevaLista = listaDeFrutas.map { it.length }
+    println(nuevaLista)
+
+
+    //Filter
+    val listaFiltrada = nuevaLista.filter { it > 4 }
+    println(listaFiltrada)
 
 }
