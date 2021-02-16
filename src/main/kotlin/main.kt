@@ -1,43 +1,20 @@
 
 fun main(args: Array<String>) {
 
-    // Maps Inmutables
-    val edadDeSuperHeroes = mapOf(
-        "Ironman" to 35,
-        "Spiderman" to 23,
-        "Capitan America" to 99
-    )
-    println(edadDeSuperHeroes)
+    //Creando un set inmutable
+    val vocalesRepetidas = setOf("a", "e", "i", "o", "u", "a", "e", "i", "o", "u")
+    println(vocalesRepetidas) // Resultado: [a, e, i, o, u]
 
-    // Maps mutables
-    val edadDeSuperHeroesMutable = mutableMapOf(
-        "Ironman" to 35,
-        "Spiderman" to 23,
-        "Capitan America" to 99
-    )
-    println(edadDeSuperHeroesMutable)
+    //Creando set mutables
+    val numerosFavoritos = mutableSetOf(1,2,3,4)
+    numerosFavoritos.add(5)
+    println(numerosFavoritos) // Resultado: [1, 2, 3, 4, 5]
 
-    // Consultar un valor por su clave
-    val edadIronman = edadDeSuperHeroesMutable["Ironman"]
-    println("La edad de Ironman es $edadIronman")
+    //Eliminado elementos de set
+    numerosFavoritos.remove(3)
+    println(numerosFavoritos) // Resultado: [1, 2, 4, 5]
 
-    // Agregar elemento a un Map usando la función put
-    edadDeSuperHeroesMutable.put("Wolverine", 45)
-    println(edadDeSuperHeroesMutable)
-
-    // Usando asignación
-    edadDeSuperHeroesMutable["Storm"] = 30
-    println(edadDeSuperHeroesMutable)
-
-    // Eliminar elemento de nuestro Map
-    edadDeSuperHeroesMutable.remove("Wolverine")
-
-    // Para conocer todas las keys de nuestro map .keys
-    println(edadDeSuperHeroesMutable.keys)
-
-    // Todos los valores del map usamos .values
-    println(edadDeSuperHeroesMutable.values)
-
-
-
+    //Eliminar dependiendo de una condición
+    numerosFavoritos.removeIf { numero -> numero.rem(2) != 0 }
+    println(numerosFavoritos)
 }
