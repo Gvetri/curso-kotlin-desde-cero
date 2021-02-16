@@ -1,44 +1,39 @@
 
 fun main(args: Array<String>) {
 
-    // Declarar listas inmutables
-    val listaDeNombres = listOf("Juan","Enrique","Camila")
-    println(listaDeNombres)
+    val numerosDeLoteria = listOf(11,22,43,56,78,66)
 
-    // Declarar listas mutables
-    val listaVacia = mutableListOf<String>()
-    println("Lista vacia = $listaVacia")
+    // Ordenar con Sort
+    val numerosSorted = numerosDeLoteria.sorted()
+    println(numerosDeLoteria)
 
-    // Agregar elemento a una lista mutable
-    listaVacia.add("Juan")
+    // Ordenar por orden descendiente
+    val numerosDeLoteriaDescendiente = numerosDeLoteria.sortedDescending()
+    println(numerosDeLoteriaDescendiente)
 
-    // Obtener un valor de la lista
-    val valorUsandoGet = listaVacia.get(0)
-    println("Primer valor usando la función get $valorUsandoGet")
+    // Ordenar por condición
+    val ordenarPorMultiplos = numerosDeLoteria.sortedBy { numero -> numero < 50 }
+    println(ordenarPorMultiplos)
 
-    val valorUsandoOperadorIndexado = listaVacia[0]
-    println("Primer valor usando operador indexado $valorUsandoOperadorIndexado")
+    // Shuffled
 
-    val primerValor = listaVacia.first()
+    val numerosAleatorios = numerosDeLoteria.shuffled()
+    println(numerosAleatorios)
 
-    println("Valor usando la función first $primerValor")
+    // Reversa
 
-    // Eliminar elementos de la lista
+    val numerosEnReversa = numerosDeLoteria.reversed()
+    println(numerosEnReversa)
 
-    // Elimina el elemento en la posición 0
-    listaVacia.removeAt(0)
-    println("Lista vacia luego de eliminar el primer elemento $listaVacia")
+    // Convertir lista de un tipo en listas de otro tipo
 
-    // Elimina el elemento cuando la condición se cumpla
-    val listaDeApellidos = mutableListOf("Perez","Cruz","Rodriguez")
-    listaDeApellidos.removeIf { apellido -> apellido.length > 5 }
-    println("Lista de apellidos despues del filtro $listaDeApellidos ")
+    val mensajesDeNumeros = numerosDeLoteria.map { numero -> "Tu numero de loteria es $numero" }
+    println(mensajesDeNumeros)
 
-    // Arrays en Kotlin
-    val myArray = arrayOf(1,2,3,4)
-    println("Nuestro array $myArray")
-    println("Array como lista ${myArray.toList()}")
+    // Filtrar numeros
 
+    val numerosFiltrados = numerosDeLoteria.filter { numero -> numero > 50 }
+    println(numerosFiltrados)
 
 
 
