@@ -1,39 +1,42 @@
 
 fun main(args: Array<String>) {
 
-    val numerosDeLoteria = listOf(11,22,43,56,78,66)
+    // Maps Inmutables
+    val edadDeSuperHeroes = mapOf(
+        "Ironman" to 35,
+        "Spiderman" to 23,
+        "Capitan America" to 99
+    )
+    println(edadDeSuperHeroes)
 
-    // Ordenar con Sort
-    val numerosSorted = numerosDeLoteria.sorted()
-    println(numerosDeLoteria)
+    // Maps mutables
+    val edadDeSuperHeroesMutable = mutableMapOf(
+        "Ironman" to 35,
+        "Spiderman" to 23,
+        "Capitan America" to 99
+    )
+    println(edadDeSuperHeroesMutable)
 
-    // Ordenar por orden descendiente
-    val numerosDeLoteriaDescendiente = numerosDeLoteria.sortedDescending()
-    println(numerosDeLoteriaDescendiente)
+    // Consultar un valor por su clave
+    val edadIronman = edadDeSuperHeroesMutable["Ironman"]
+    println("La edad de Ironman es $edadIronman")
 
-    // Ordenar por condición
-    val ordenarPorMultiplos = numerosDeLoteria.sortedBy { numero -> numero < 50 }
-    println(ordenarPorMultiplos)
+    // Agregar elemento a un Map usando la función put
+    edadDeSuperHeroesMutable.put("Wolverine", 45)
+    println(edadDeSuperHeroesMutable)
 
-    // Shuffled
+    // Usando asignación
+    edadDeSuperHeroesMutable["Storm"] = 30
+    println(edadDeSuperHeroesMutable)
 
-    val numerosAleatorios = numerosDeLoteria.shuffled()
-    println(numerosAleatorios)
+    // Eliminar elemento de nuestro Map
+    edadDeSuperHeroesMutable.remove("Wolverine")
 
-    // Reversa
+    // Para conocer todas las keys de nuestro map .keys
+    println(edadDeSuperHeroesMutable.keys)
 
-    val numerosEnReversa = numerosDeLoteria.reversed()
-    println(numerosEnReversa)
-
-    // Convertir lista de un tipo en listas de otro tipo
-
-    val mensajesDeNumeros = numerosDeLoteria.map { numero -> "Tu numero de loteria es $numero" }
-    println(mensajesDeNumeros)
-
-    // Filtrar numeros
-
-    val numerosFiltrados = numerosDeLoteria.filter { numero -> numero > 50 }
-    println(numerosFiltrados)
+    // Todos los valores del map usamos .values
+    println(edadDeSuperHeroesMutable.values)
 
 
 
