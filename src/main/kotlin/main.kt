@@ -1,46 +1,28 @@
 
 fun main(args: Array<String>) {
 
-    // Let
-    var nombre: String? = null
-    nombre?.let { // Esto no se ejecutará
-        println("El nombre no es nulo, es $it")
-    }
-    nombre = "Giuseppe"
-    nombre?.let { // Esto se ejecutará
-        println("El nombre no es nulo, es $it")
+    // Como crear una lambda
+    val myLambda : (String) -> Int = {
+        it.length
     }
 
-    //With
-    val usuario = "giuseppe@platzi.com"
-    val mensajeDeInicioSesion = with(usuario) {
-        iniciarSesion(this)
-        "Bienvenido $this"
+    val myLambda2 : (String) -> Int = { texto ->
+        texto.length * 2
     }
-    println(mensajeDeInicioSesion)
 
-    //Run
-    val moviles = mutableListOf("Google Pixel 2XL","Google Pixel 4a","Huawei Redmi 9","Xiaomi mi A3").run {
-        removeIf { movil -> movil.contains("Google") }
-        this
+    // Como invocar una lambda
+    val resultadoDeLambda = myLambda("Hola Platzi")
+    println(resultadoDeLambda)
+
+    // Como usar una lambda como parámetro
+    val listaDeString = listOf("A","B","C")
+
+    val resultadoLambdaSinVariable = listaDeString.map { texto ->
+        texto.length * 2
     }
-    println(moviles)
+    println(resultadoLambdaSinVariable)
 
-    //Apply
-    val movilesSinGoogle = mutableListOf("Google Pixel 2XL","Google Pixel 4a","Huawei Redmi 9","Xiaomi mi A3").apply{
-            removeIf { movil -> movil.contains("Google") }
-        }
-    println(movilesSinGoogle)
+    val resultadoLambda= listaDeString.map(myLambda2)
+    println(resultadoLambda)
 
-    //Also
-    val lista = mutableListOf("Google Pixel 2XL","Google Pixel 4a","Huawei Redmi 9","Xiaomi mi A3")
-        .also { lista -> println("Lista original $lista") }
-        .asReversed()
-
-    println(lista)
-
-}
-
-fun iniciarSesion(usuario: String){
-    println("Iniciando sesión con usuario $usuario")
 }
