@@ -1,28 +1,41 @@
 
 fun main(args: Array<String>) {
 
-    // Como crear una lambda
-    val myLambda : (String) -> Int = {
-        it.length
-    }
+    // Pasar lambda como parámetro a una función de alto orden
+    val largoDelValorInicial = superFuncion(valorInicial = "Hola!", block = {
+        valorInicial -> valorInicial.length
+    })
+    println(largoDelValorInicial)
 
-    val myLambda2 : (String) -> Int = { texto ->
-        texto.length * 2
-    }
+    val largoDelValorInicial2 = superFuncion(valorInicial = "Hola!") { valorInicial -> valorInicial.length }
+    println(largoDelValorInicial2)
 
-    // Como invocar una lambda
-    val resultadoDeLambda = myLambda("Hola Platzi")
-    println(resultadoDeLambda)
+    // Como obtener una lambda de una función
+    val obtenerLambda = funcionInception("Carlos")
 
-    // Como usar una lambda como parámetro
-    val listaDeString = listOf("A","B","C")
+    // Como obtener el valor de una lambda obtenida como resultado de otra función
+    val valorDeLambda = obtenerLambda()
+    println(valorDeLambda)
 
-    val resultadoLambdaSinVariable = listaDeString.map { texto ->
-        texto.length * 2
-    }
-    println(resultadoLambdaSinVariable)
+    // Como obtener el valor de una lambda declarada como variable
 
-    val resultadoLambda= listaDeString.map(myLambda2)
-    println(resultadoLambda)
+    val lambdaComoVariable : (String) -> String = { mensaje -> "El mensaje es $mensaje" }
+    println(lambdaComoVariable)
 
+    val lambdaComoVariable2 = { mensaje : String -> "El mensaje es $mensaje" }
+    println(lambdaComoVariable2)
+
+    val valorDeLambdaComoVariable = lambdaComoVariable("La función ha sido llamada con exito")
+    println(valorDeLambdaComoVariable)
+
+}
+
+fun superFuncion(valorInicial: String, block : (String) -> Int) : Int {
+    return block(valorInicial)
+}
+
+// Como devolver una función
+
+fun funcionInception(nombre: String) : () -> String {
+    return { "Hola desde la lambda $nombre" }
 }
