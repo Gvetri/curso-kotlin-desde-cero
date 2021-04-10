@@ -1,10 +1,7 @@
 fun main(args: Array<String>) {
-    var nombre: String? = null
-    nombre?.let { valor ->
-        println("El nombre no es nulo, es $valor")
-    }
-    nombre = "Giuseppe"
-    nombre?.let { valor ->
-        println("El nombre no es nulo, es $valor")
+    val colores = listOf("Azul","Amarillo","Rojo")
+    with(colores) {
+        println("Nuestros colores son $this")
+        println("Esta lista tiene una cantidad de colores de $size")
     }
 }
